@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembuatan artikel</title>
+    <link href="/asset/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#">Pembuatan artikel</a>
+        </nav>
+    </div>
+    <div class="container">
+        <form method="POST" action="buatArtikel.php" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="Judul">Judul artikel</label>
+                <input class="form-control" type="text" name="judul">
+            </div>
+            <div class="form-group">
+                <label for="Dateline">Isi artikel</label>
+                <textarea class="form-control" id="isi" rows="3" name="isi"></textarea>
+            </div>
+            </br>
+            <button class="btn btn-md btn-primary btn-block" type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+
+</html>
