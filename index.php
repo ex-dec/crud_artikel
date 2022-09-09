@@ -14,14 +14,14 @@ $query = mysqli_query($mysqli, "SELECT * FROM artikel");
 </head>
 
 <body>
-  <div class="container">
+  <div class="container">  
     <nav class="navbar navbar-light bg-light">
       <a class="navbar-brand" href="#">Portal Berita</a>
       <a href="buatArtikel.html"><button type="button" class="btn btn-primary btn-md">Membuat artikel</button></a>
     </nav>
   </div>
   <div class="container">
-    <table class="table" id="dataTable" width="100%" cellspacing="0">
+    <table class="table fixed" id="dataTable" width="100%" cellspacing="0">
       <tbody>
         <?php
         $i = 1;
@@ -32,11 +32,14 @@ $query = mysqli_query($mysqli, "SELECT * FROM artikel");
               <h2><?= $artikel['title'] ?></h2>
             </td>
             <td>
+            <a href="updateArtikel.php?id=<?= $artikel['id_article'] ?>" class="badge badge-secondary">update</a>
+            </td>
+            <td>
             <a href="hapusArtikel.php?id=<?= $artikel['id_article'] ?>" class="badge badge-danger">hapus</a>
             </td>
           </tr>
           <tr>
-            <td>
+            <td height="20px">
               <p><?= $artikel['article'] ?></p>
             </td>
           </tr>
@@ -49,4 +52,9 @@ $query = mysqli_query($mysqli, "SELECT * FROM artikel");
   </div>
 </body>
 
+<div class="container">
+<footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <p class="col-md-4 mb-0 text-muted">@Krisna Wahyu Setyawan 2022</p>
+  </footer>
+</div>
 </html>

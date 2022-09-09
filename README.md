@@ -1,1 +1,2 @@
-# crud_artikel
+# Aplikasi artikel berita berbasis PHP Native
+
