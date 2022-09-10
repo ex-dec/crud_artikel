@@ -1,5 +1,9 @@
-<?php 
-include 'control/connection.php';
+<?php
+include "control/connection.php";
+$id = $_GET['id'];
+$s_detail = "SELECT * FROM artikel where id_article = '$id'";
+$q_detail = mysqli_query($mysqli, $s_detail);
+$artikel = mysqli_fetch_assoc($q_detail);
 ?>
 
 <!doctype html>
@@ -7,17 +11,19 @@ include 'control/connection.php';
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>Portal Berita</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <link rel="manifest" href="site.webmanifest">
-		<link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
 		<!-- CSS here -->
             <link rel="stylesheet" href="assets/css/bootstrap.min.css">
             <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
+
             <link rel="stylesheet" href="assets/css/ticker-style.css">
+
             <link rel="stylesheet" href="assets/css/flaticon.css">
+
             <link rel="stylesheet" href="assets/css/slicknav.css">
             <link rel="stylesheet" href="assets/css/animate.min.css">
             <link rel="stylesheet" href="assets/css/magnific-popup.css">
@@ -26,62 +32,62 @@ include 'control/connection.php';
             <link rel="stylesheet" href="assets/css/slick.css">
             <link rel="stylesheet" href="assets/css/nice-select.css">
             <link rel="stylesheet" href="assets/css/style.css">
+            <link rel="stylesheet" href="assets/css/responsive.css">
    </head>
 
    <body>
+    <?php include 'assets/template/header.php'?>
 
-   <?php include 'assets/template/header.php'?>
-
-   <main>
-    <!-- Trending Area Start -->
-    <div class="trending-area fix">
-        <div class="container">
-            <div class="trending-main">
-                <!-- Trending Tittle -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <?php include 'assets/template/trending.php'?>
+    <main>
+        <!-- About US Start -->
+        <div class="about-area">
+            <div class="container">
+                    <!-- Hot Aimated News Tittle-->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <?php include 'assets/template/trending.php'?>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Trending Area End -->
-    <!--  Recent Articles start -->
-    <div class="recent-articles">
-        <div class="container">
-           <div class="recent-wrapper">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="recent-active dot-style d-flex dot-style">
-                            <div class="single-recent mb-100">
-                                <div class="what-img">
-                                    <img src="assets/img/news/recent1.jpg" alt="">
+                   <div class="row">
+                        <div class="col-lg-8">
+                            <!-- Trending Tittle -->
+                            <div class="about-right mb-90">
+                                <div class="about-img">
+                                    <img src="<?= $artikel['pict']?>" alt="">
                                 </div>
-                                <div class="what-cap">
-                                    <span class="color1">Night party</span>
-                                    <h4><a href="#">Welcome To The Best Model  Winner Contest</a></h4>
+                                <div class="section-tittle mb-30 pt-30">
+                                    <h3><?= $artikel['title']?></h3>
+                                </div>
+                                <div class="about-prea">
+                                    <p class="about-pera1 mb-25"><?= $artikel['article']?></p>
+                                </div>
+                                <div class="social-share pt-30">
+                                    <div class="section-tittle">
+                                        <h3 class="mr-20">Share:</h3>
+                                        <ul>
+                                            <li><a href="#"><img src="assets/img/news/icon-ins.png" alt=""></a></li>
+                                            <li><a href="#"><img src="assets/img/news/icon-fb.png" alt=""></a></li>
+                                            <li><a href="#"><img src="assets/img/news/icon-tw.png" alt=""></a></li>
+                                            <li><a href="#"><img src="assets/img/news/icon-yo.png" alt=""></a></li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-           </div>
+                        </div>
+                   </div>
+            </div>
         </div>
-    </div>           
-    <!--Recent Articles End -->
-    <!--Start pagination -->
-    <div class="pagination-area pb-45 text-center">
-    </div>
-    <!-- End pagination  -->
+        <!-- About US End -->
     </main>
-    
-    <?php include 'assets/template/footer.php'?>
 
+    <?php include 'assets/template/footer.php'?>
+   
 	<!-- JS here -->
 	
 		<!-- All JS Custom Plugins Link Here here -->
         <script src="./assets/js/vendor/modernizr-3.5.0.min.js"></script>
+		
 		<!-- Jquery, Popper, Bootstrap -->
 		<script src="./assets/js/vendor/jquery-1.12.4.min.js"></script>
         <script src="./assets/js/popper.min.js"></script>
